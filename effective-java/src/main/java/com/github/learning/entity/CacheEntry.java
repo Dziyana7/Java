@@ -6,9 +6,7 @@ public class CacheEntry {
     private int accessCount;
 
     public CacheEntry(String data) {
-        this.data = data;
-        this.lastAccessTime = System.currentTimeMillis();
-        this.accessCount = 1;
+        // insert implementation of constructor here
     }
 
     public String getData() {

@@ -1,7 +1,6 @@
 package com.github.learning.entity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CacheStatistics {
@@ -36,7 +35,7 @@ public class CacheStatistics {
     }
 
     public double getAvgPutTime() {
-        return putTimes.stream().mapToLong(Long::longValue).average().orElse(0);
+        return 0; // insert your realization of getting average put time here
     }
 
     public long getEvictionCount() {
