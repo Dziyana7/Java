@@ -2,20 +2,26 @@ package com.github.learning.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
+
+import static java.util.Arrays.stream;
 
 public class CacheStatistics {
     private long hits;
     private long misses;
     private long evictionCount;
 
-    private List<Long> putTimes = new ArrayList<>();
+    private final List<Long> putTimes = new ArrayList<>();
 
-    public synchronized void incrementHits() {
+    public synchronized int incrementHits() {
+
         hits++;
+        return 0;
     }
 
-    public synchronized void incrementMisses() {
+    public synchronized int incrementMisses() {
         misses++;
+        return 0;
     }
 
     public synchronized void incrementEvictionCount() {
@@ -35,7 +41,13 @@ public class CacheStatistics {
     }
 
     public double getAvgPutTime() {
-        return 0; // insert your realization of getting average put time here
+        // insert your realization of getting average put time here
+        OptionalDouble timeAverage = putTimes.stream().mapToLong(Long::longValue).average();
+        if(timeAverage.isPresent()) {
+            return timeAverage.getAsDouble();
+        }else {
+            return 0;
+        }
     }
 
     public long getEvictionCount() {

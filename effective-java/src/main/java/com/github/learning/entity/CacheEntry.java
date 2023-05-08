@@ -5,8 +5,11 @@ public class CacheEntry {
     private long lastAccessTime;
     private int accessCount;
 
-    public CacheEntry(String data) {
+    public CacheEntry(String data, long lastAccessTime, int accessCount) {
         // insert implementation of constructor here
+        this.data = data;
+        this.lastAccessTime = lastAccessTime;
+        this.accessCount = accessCount;
     }
 
     public String getData() {
